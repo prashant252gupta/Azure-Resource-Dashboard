@@ -4,8 +4,7 @@ import axios from "axios";
 import "./index.css";
 import Data from "./Data.js";
 
-const baseURL =
-    "http://localhost:8000/azure/get-data";
+const baseURL = "http://localhost:8000/azure/get-data";
 
 class App extends Component {
     constructor(props) {
