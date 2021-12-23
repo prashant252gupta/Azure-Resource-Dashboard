@@ -5,7 +5,7 @@ const router = express.Router()
 const Resource = require('../models/Resource')
 
 
-router.get('/get-data',async(req,res)=>{
+router.get('/get-data' , async(req,res) => {
     try{
         const subscriptions = await updateDataFromAzure()
         await Resource.deleteMany({})
