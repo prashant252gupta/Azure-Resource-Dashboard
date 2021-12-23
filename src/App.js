@@ -21,7 +21,7 @@ class App extends Component {
 
         axios.get(baseURL)
             .then((response) => {
-                console.log(response.data)
+                //console.log(response.data)
                 const locArray = response.data.map((el) => {
                     for (let i = 0; i < Data.length; i++) {
                         if (Data[i].name === el.location) {
