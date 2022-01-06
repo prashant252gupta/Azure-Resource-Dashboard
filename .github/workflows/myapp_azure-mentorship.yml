@@ -46,6 +46,26 @@ jobs:
         with:
           name: node-app
 
+      - name: run server
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      
+      - name: npm install, build, and test
+        run: |
+          cd backend
+          npm install
+          npm start & npx wait-on http://localhost:8080
+
+        env:
+          MONGO_URI: ${{secrets.MONGO_URI}}
+          AZURE_TOKEN_URL: ${{secrets.AZURE_TOKEN_URL}}
+          AZURE_CLIENT_SECRET: ${{secrets.AZURE_CLIENT_SECRET}}
+          AZURE_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
+          REDIRECT_URI: ${{secrets.REDIRECT_URI}}
+          AZURE_RESOURCE: ${{secrets.AZURE_RESOURCE}}
+          AZURE_BASE_URL: ${{secrets.AZURE_BASE_URL}}
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
