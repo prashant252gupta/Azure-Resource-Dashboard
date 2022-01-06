@@ -54,7 +54,7 @@ jobs:
         run: |
           cd backend
           npm install
-          npm start & npx wait-on http://localhost:8080
+          npm start & npx wait-on http://localhost:8000
 
         env:
           MONGO_URI: ${{secrets.MONGO_URI}}
